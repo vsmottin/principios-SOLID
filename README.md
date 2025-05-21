@@ -31,7 +31,7 @@ Repositório para atividade de **Engenharia de Software – UTFPR campus Campo M
 
 ---
 
-## 4 – Princípio de Demeter (Lei do Menor Conhecimento)
+## 4 – Princípio de Demeter
 
 * **O que é?** Um objeto deve interagir só com: ele mesmo, seus campos, argumentos ou objetos que cria.  
 * **Para que serve?** Reduz cadeias de chamadas longas (`a.getB().getC().getD()`) e o acoplamento entre partes do sistema.  
