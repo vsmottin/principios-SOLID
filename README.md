@@ -1,7 +1,7 @@
 # Princípios de Projeto
 
-Repositório da atividade de **Engenharia de Software – UTFPR / Campo Mourão (2025/1)**.  
-**Aluna:** Victória S. Mottin | **Professor:** Reginaldo Ré
+Repositório para atividade de **Engenharia de Software – UTFPR campus Campo Mourão (2025/1)**.  
+**Acadêmica:** Victória S. Mottin | **Professor:** Reginaldo Ré
 
 ## 1 – Single Responsibility Principle (SRP)
 
