@@ -14,7 +14,7 @@ Repositório para atividade de **Engenharia de Software – UTFPR campus Campo M
 
 ### Exemplo
 
-Para ilustrar, a classe `Pedido` inicialmente acumulava responsabilidades de cálculo do total e persistência, acessando o banco de dados. O SRP recomenda reestruturar o código de modo a separar essas responsabilidades em classes distintas.
+Para ilustrar, a classe `Pedido` inicialmente acumulava responsabilidades de cálculo do total do pedido e persistência, acessando e salvando as informações do pedido no banco de dados. O SRP recomenda reestruturar o código de modo a separar essas responsabilidades em classes distintas, fazendo com que o cálculo do total, um atributo essencial ao pedido, seja responsabilidade da própria classe e o acesso ao banco seja dado como responsabilidade de outra `PedidoRepository`.
 
 - Antes:
 
@@ -79,7 +79,7 @@ public:
 
 ### Exemplo 
 
-A classe `Restaurante` tem uma dependência direta a um objeto `FornoEletrico`. O DIP introduz uma abstração que torna `Restaurante` muito mais flexível, de modo a poder implementar diferentes tipos de fornos futuramente.
+A classe `Restaurante` tem uma dependência direta a um objeto `FornoEletrico`, o qual é utilizado no método `PrepararPizza()` e restringe a forma em que o método funciona, ou seja, só se pode preparar pizza com este forno elétrico. O DIP introduz uma abstração que torna `Restaurante` uma classe muito mais flexível, de modo a poder implementar diferentes tipos de fornos que podem realizar a mesma ação por possuírem a mesma interface.
 
 - Antes:
 
@@ -153,7 +153,7 @@ public:
 
 ### Exemplo
 
-A classe `Personagem` define um modelo do participante em um sistema que usa herança para definir habilidades como atacar e defender. A composição permite uma flexibilidade muito maior na combinação dessas habilidades para cada tipo de personagem.
+A classe `Personagem` define um modelo do participante em um sistema que usa herança para definir habilidades como atacar e defender, fazendo com que cada um possua um método de cada tipo de ação que é somente substituído de acordo com o personagem. A composição que é aplicada no lugar da herança permite uma flexibilidade muito maior na combinação dessas habilidades para cada um, de modo que se tornam possíveis vários tipos de ataque e de defesa para personagens diferentes, assim como a possibilidade de existirem personagens que não atacam ou defendem. Adicionar novas habilidades não interfere na classe `Personagem`.
 
 - Antes:
 
@@ -267,7 +267,7 @@ public:
 
 ### Exemplo:
 
-Abaixo pode ser vista uma implementação em que a recuperação do atributo nome de uma classe `Cliente` envolve uma cadeia de chamadas envolvendo os objetos `Pedido` e `Endereco`. O princípio visa simplificar essa sequência, promovendo um menor acoplamento.
+Abaixo pode ser vista uma implementação em que a recuperação do atributo nome de uma classe `Cliente` envolve uma cadeia de chamadas envolvendo os objetos `Pedido` e `Endereco` (`enderecoEntrega.getCliente().getNome()`), fazendo com que informações da estrutura interna dos objetos sejam expostas sem necessidade e caso haja alguma mudança em `getCliente()`, por exemplo, o método pare de funcionar. O princípio visa simplificar essa sequência, promovendo um menor acoplamento através da criação do método `getNomeDoClienteDoPedido()` que relaciona o pedido com seu próprio endereço e não "conhece" `Cliente`.
 
 - Antes:
 
@@ -289,7 +289,7 @@ public:
 
 class Pedido {
 private:
-    Endereco enderecoEntrega; // Pedido tem um endereço de entrega
+    Endereco enderecoEntrega; 
 
 public:
     std::string getNomeCliente() {
