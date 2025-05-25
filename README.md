@@ -310,13 +310,13 @@ public:
 
 class Endereco {
 private:
-    Cliente clienteAssociado; // Endereco sabe quem é o cliente associado
+    Cliente clienteAssociado; 
 
 public:
     Endereco(const Cliente& cli) : clienteAssociado(cli) {} 
 
     std::string getNomeClienteAssociado() {
-        return clienteAssociado.getNome(); // Endereco expõe apenas o nome do cliente
+        return clienteAssociado.getNome(); // Endereço mostra apenas o nome do cliente
     }
 };
 
