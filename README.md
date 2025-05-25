@@ -58,7 +58,6 @@ public:
     }
 };
 
-------------------------------------------------------------------------------------------------
 
 // Classe 2: Responsável apenas por persistência
 class PedidoRepository {
